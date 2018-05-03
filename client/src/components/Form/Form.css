@@ -1,0 +1,11 @@
+.text-center {
+    max-width: 40%;
+    text-align: center;
+    margin-right: 25%;
+    margin-left: 25%;   
+    padding: 20px;
+    border: solid gray 2px;
+    border-style: outset;
+    border-radius: 10px;
+    
+}
