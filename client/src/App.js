@@ -4,6 +4,7 @@ import './App.css';
 import Home from './pages/Home/Home';
 import Login from './components/Login/Login';
 import Jumbotron from './components/Jumbotron/Jumbotron';
+import ProductList from './components/Item/ProductList';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/products' component={ProductList} />
 
             </Switch>
 

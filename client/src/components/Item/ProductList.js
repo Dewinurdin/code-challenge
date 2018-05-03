@@ -34,6 +34,13 @@ export default class ProductList extends React.Component {
         }
       ],
   }
+
+  axios({
+    url: '/products',
+    method: 'GET'
+  })
+  .then((response) => console.log("Axios Products Response: ", response.data))
+  .catch((error) => console.log("Axios Product List Error: ", error.response.data))
  
 }
 
@@ -44,10 +51,10 @@ export default class ProductList extends React.Component {
       const insertProduct = this.state.products.map((product, sku, productName, quantity, index) => {
         return (
           <tr>
-            <th scope="row" key={index} > </th>
-            <td>  {product.sku} </td>
-            <td > {product.productName} </td>
-            <td > {product.quantity} </td>
+            <th scope="row" key={index}> </th>
+              <td>  {product.sku} </td>
+              <td > {product.productName} </td>
+              <td > {product.quantity} </td>
         </tr>
         )          
       });
