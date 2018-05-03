@@ -12,12 +12,22 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    console.log("Signin DB Console.log: ", req.body)
+    console.log("Signin Console.log: ", req.body)
     const { userId, password } = req.body;
     res.json({
         status: "isLoggedin",
         userId,
         password
+      })
+});
+
+app.get('/products', (req, res) => {
+    console.log("Products Console.log: ", res.body)
+    const { sku, productName, quantity } = res.body;
+    res.json({
+        sku,
+        productName,
+        quantity
       })
 });
 

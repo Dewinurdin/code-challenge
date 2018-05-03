@@ -35,23 +35,24 @@ export default class ProductList extends React.Component {
       ],
   }
 
-  axios({
-    url: '/products',
-    method: 'GET'
-  })
-  .then((response) => console.log("Axios Products Response: ", response.data))
-  .catch((error) => console.log("Axios Product List Error: ", error.response.data))
+ 
+
+  // axios({
+  //   url: '/products',
+  //   method: 'GET'
+  // })
+  // .then((response) => console.log("Axios Products Response: ", response.data))
+  // .catch((error) => console.log("Axios Product List Error: ", error.response.data));
  
 }
-
 
   render() {
     console.log(this.state);
 
-      const insertProduct = this.state.products.map((product, sku, productName, quantity, index) => {
+      const initialProductState = this.state.products.map((product, sku, productName, quantity, index) => {
         return (
           <tr>
-            <th scope="row" key={index}> </th>
+            <th scope="row" key={index} > {index} </th>
               <td>  {product.sku} </td>
               <td > {product.productName} </td>
               <td > {product.quantity} </td>
@@ -72,7 +73,7 @@ export default class ProductList extends React.Component {
                 </thead>
                     <tbody>
 
-                      { insertProduct }
+                      { initialProductState }
                      
                            
                     </tbody>
