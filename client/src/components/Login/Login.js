@@ -40,8 +40,8 @@ class Login extends React.Component {
 
         const isLoggedIn = this.state;
 
-        if (isLoggedIn === true){
-            return  <ProductList />;
+        if (isLoggedIn){
+            return  <ProductList userId={this.state.userId} />;
         }
 
         return (

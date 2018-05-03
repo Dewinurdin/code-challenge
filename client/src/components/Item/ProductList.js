@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './Table';
+// import Table from './Table';
 
 export default class ProductList extends React.Component {
 
@@ -7,6 +7,10 @@ export default class ProductList extends React.Component {
     super(props)
 
     this.state = {
+      product: "",
+      sku: "",
+      productName: "",
+      quantity: "",
       products: [
         { 
           sku: "12345",
@@ -37,23 +41,35 @@ export default class ProductList extends React.Component {
   render() {
     console.log(this.state);
 
-    const { sku, productName, quantity } = this.state;
-
-    const initialProduct = this.state.products.map((product, i) =>
-      <Table key={i}
-            sku={this.state.products.sku}
-            productName={this.state.products.productName}
-            quantity={this.state.products.quantity}
-           />
-    )
+      const insertProduct = this.state.products.map((product, sku, productName, quantity, index) => {
+        return (
+          <tr>
+            <th scope="row" key={index} > </th>
+            <td>  {product.sku} </td>
+            <td > {product.productName} </td>
+            <td > {product.quantity} </td>
+        </tr>
+        )          
+      });
 
     return (
       <div className="product-list">
+        <table className="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">SKU</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity on hand</th>
+                    </tr>
+                </thead>
+                    <tbody>
 
-        <Table> 
-          {initialProduct}
-        </Table>        
-
+                      { insertProduct }
+                     
+                           
+                    </tbody>
+          </table>
       </div>
     );
   }
